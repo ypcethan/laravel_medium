@@ -1,5 +1,5 @@
-<nav class="bg-white shadow mb-8  p-10">
-  <div class="container mx-auto px-6 md:px-0">
+<nav class="bg-white shadow mb-8 py-10 sm:px-32 ">
+  <div class="container mx-auto  md:px-0">
     <div class="flex items-center justify-center">
       <div class="mr-6">
         <a href="{{ url('/') }}" class="text-lg font-semibold text-dark no-underline logo">
