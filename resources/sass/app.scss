@@ -1,0 +1,16 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+
+.logo {
+    font-family: "Merriweather", serif;
+}
+
+.btn-nav {
+    @apply text-sm p-3 text-black;
+    font-family: "Merriweather", serif;
+}
+
