@@ -265,7 +265,8 @@ module.exports = {
                 '"Courier New"',
                 "monospace"
             ],
-            merriweather: ["Merriweather"]
+            merriweather: ["Merriweather"],
+            roboto: ["Roboto"]
         },
         fontSize: {
             xs: "0.75rem",

@@ -6069,6 +6069,10 @@ video {
   font-family: Merriweather;
 }
 
+.font-roboto {
+  font-family: Roboto;
+}
+
 .font-hairline {
   font-weight: 100;
 }
@@ -24516,6 +24520,10 @@ video {
     font-family: Merriweather;
   }
 
+  .sm\:font-roboto {
+    font-family: Roboto;
+  }
+
   .sm\:font-hairline {
     font-weight: 100;
   }
@@ -42939,6 +42947,10 @@ video {
 
   .md\:font-merriweather {
     font-family: Merriweather;
+  }
+
+  .md\:font-roboto {
+    font-family: Roboto;
   }
 
   .md\:font-hairline {
@@ -61366,6 +61378,10 @@ video {
     font-family: Merriweather;
   }
 
+  .lg\:font-roboto {
+    font-family: Roboto;
+  }
+
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -79789,6 +79805,10 @@ video {
 
   .xl\:font-merriweather {
     font-family: Merriweather;
+  }
+
+  .xl\:font-roboto {
+    font-family: Roboto;
   }
 
   .xl\:font-hairline {

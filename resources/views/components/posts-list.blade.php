@@ -1,6 +1,6 @@
   @forelse($posts as $post)
 
-  <div class="flex justify-between my-6 bg-green-100">
+  <div class="flex justify-between py-3 my-5 bg-green-100">
     <div class="flex flex-col justify-between ">
       <h3 class="font-serif text-xl font-semibold text-black">{{ $post->title }}</h3>
       <p class="my-2 text-sm text-gray-600">{{ $post->content }}</p>
@@ -14,7 +14,7 @@
         @endif
       </div>
     </div>
-    <img src="https://picsum.photos/152/123" alt="" class="ml-4 w-25">
+    <img src="https://picsum.photos/id/{{$post->id}}/152/123" alt="" class="ml-4 w-25">
   </div>
   <hr>
   @empty
