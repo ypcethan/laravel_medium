@@ -15,8 +15,12 @@ class ManagePostsTest extends TestCase
         /* $this->withoutExceptionHandling(); */
         $attributes = factory('App\Post')->raw();
         $this->get(route('home'))->assertRedirect('login');
+    }
 
-        /* $post = factory('App\') */
-    /* $this->get('') */
+    /** @test */
+    public function unauthenticated_user_cannot_view_a_single_post()
+    {
+        $post = factory('App\Post')->create();
+        $this->get($post->path())->assertRedirect('login');
     }
 }
