@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/me/stories/{state}', 'UserPostController@show')->name('user-posts-show');
     Route::get('/@{user:name}/{post:slug}', 'PostController@show')->name('posts-show');
     Route::get('/posts', 'PostController@index')->name('home');
 });

@@ -13,5 +13,9 @@ class PostSeeder extends Seeder
     {
         //
         factory('App\Post', 20)->create();
+        $superUser = App\User::where('name', 'ethan')->get()->first();
+
+        factory('App\Post', 10)->create(['user_id' => $superUser->id]);
+        factory('App\Post', 10)->create(['user_id' => $superUser->id, 'published' => true]);
     }
 }

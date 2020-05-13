@@ -1,8 +1,8 @@
-<nav class="bg-white shadow mb-8 py-10 sm:px-32 ">
-  <div class="container mx-auto  md:px-0">
+<nav class="py-10 mb-8 bg-white shadow sm:px-32 font-merriweather">
+  <div class="container mx-auto md:px-0">
     <div class="flex items-center justify-center">
       <div class="mr-6">
-        <a href="{{ url('/') }}" class="text-lg font-semibold text-dark no-underline logo">
+        <a href="{{ url('/') }}" class="text-lg font-semibold no-underline text-dark ">
           {{ config("app.name", "Laravel") }}
         </a>
       </div>
@@ -14,6 +14,7 @@
         @endif @else
         <span class="btn-nav">{{ Auth::user()->name }}</span>
 
+        <a href="{{ route('user-posts-show',['state'=>'drafts'])}}" class="no-underline hover:underline btn-nav">Stories</a>
         <a href="{{ route('logout') }}" class="no-underline hover:underline btn-nav" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">{{ __("Logout") }}</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
