@@ -1,6 +1,6 @@
   @forelse($posts as $post)
 
-  <div class="flex justify-between py-3 my-5 bg-green-100">
+  <div class="flex justify-between px-4 py-3 my-5 bg-green-100">
     <div class="flex flex-col justify-between ">
       <h3 class="font-serif text-xl font-semibold text-black">{{ $post->title }}</h3>
       <p class="my-2 text-sm text-gray-600">{{ $post->content }}</p>

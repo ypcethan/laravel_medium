@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('welcome');
 
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/me/stories/{state}', 'UserPostController@show')->name('user-posts-show');
+    Route::get('/home', 'HomeController@home')->name('home');
+    Route::get('/me/stories/{state}', 'OwnPostController@show')->name('own-posts-show');
     Route::get('/@{user:name}/{post:slug}', 'PostController@show')->name('posts-show');
-    Route::get('/posts', 'PostController@index')->name('home');
+    Route::get('/posts', 'PostController@index')->name('posts-index');
+    Route::get('/new-story', 'PostController@create')->name('post-create');
 });

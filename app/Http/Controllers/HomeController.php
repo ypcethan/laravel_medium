@@ -9,8 +9,13 @@ class HomeController extends Controller
     public function index()
     {
         if (auth()->check()) {
-            return view('posts.index');
+            return view('home');
         }
         return view('welcome');
+    }
+
+    public function home()
+    {
+        return view('home');
     }
 }

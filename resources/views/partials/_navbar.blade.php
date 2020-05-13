@@ -14,7 +14,7 @@
         @endif @else
         <span class="btn-nav">{{ Auth::user()->name }}</span>
 
-        <a href="{{ route('user-posts-show',['state'=>'drafts'])}}" class="no-underline hover:underline btn-nav">Stories</a>
+        <a href="{{ route('own-posts-show',['state'=>'drafts'])}}" class="no-underline hover:underline btn-nav">Stories</a>
         <a href="{{ route('logout') }}" class="no-underline hover:underline btn-nav" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">{{ __("Logout") }}</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
