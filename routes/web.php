@@ -20,7 +20,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@home')->name('home');
     Route::get('/me/stories/{state}', 'OwnPostController@show')->name('own-posts-show');
-    Route::get('/@{user:name}/{post:slug}', 'PostController@show')->name('posts-show');
-    Route::get('/posts', 'PostController@index')->name('posts-index');
+    Route::get('/@{user:username}/{post:slug}', 'PostController@show')->name('posts-show');
+    Route::get('/@{user:username}', 'PostController@index')->name('posts-index');
     Route::get('/new-story', 'PostController@create')->name('post-create');
 });

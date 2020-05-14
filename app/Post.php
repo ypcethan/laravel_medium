@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Post extends Model
 {
@@ -20,5 +21,10 @@ class Post extends Model
     {
         $trimedTitle = preg_replace('!\s+!', '-', $this->title);
         return  strtolower($trimedTitle);
+    }
+
+    public function getPublishedDateAttribute()
+    {
+        return Carbon::parse($this->updated_at)->toFormattedDateString();
     }
 }
