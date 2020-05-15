@@ -12,7 +12,9 @@
               <p class="text-sm">
                 {{ $post->user->username}}
               </p>
-              <x-follow-button :user="$post->user"></x-follow-button>
+              <!-- <x-follow-button :user="$post->user"></x-follow-button> -->
+
+              <follow-button-component is_following="{{ auth()->user()->following($post->user)?'true' :'false' }}" target_path="{{ route('follow',['user'=>$post->user]) }}"></follow-button-component>
             </div>
             <p class="text-sm text-gray-600">
               {{ $post->published_date}}

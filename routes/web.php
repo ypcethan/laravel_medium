@@ -25,4 +25,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/new-story', 'PostController@create')->name('post-create');
 
     Route::post('@{user:username}/follow', 'FollowController@create')->name('follow');
+    Route::get('/api/following/{user1}/{user2}', 'FollowController@checkFollow')->name('check-follow');
 });
