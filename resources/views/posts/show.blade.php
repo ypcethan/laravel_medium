@@ -12,9 +12,7 @@
               <p class="text-sm">
                 {{ $post->user->username}}
               </p>
-              <button class='p-1 ml-2 text-xs font-semibold text-purple-700 bg-transparent border border-purple-500 rounded hover:bg-purple-500 hover:text-white hover:border-transparent'>
-                Follow
-              </button>
+              <x-follow-button :user="$post->user"></x-follow-button>
             </div>
             <p class="text-sm text-gray-600">
               {{ $post->published_date}}

@@ -10,14 +10,14 @@ class HomeController extends Controller
     public function index()
     {
         if (auth()->check()) {
-            $posts = Post::all()->take(6);
-            return view('home', compact("posts"));
+            return redirect(route('home'));
         }
         return view('welcome');
     }
 
     public function home()
     {
-        return view('home');
+        $posts = Post::all()->take(6);
+        return view('home', compact("posts"));
     }
 }

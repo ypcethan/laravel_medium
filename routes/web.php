@@ -23,4 +23,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/@{user:username}/{post:slug}', 'PostController@show')->name('posts-show');
     Route::get('/@{user:username}', 'PostController@index')->name('posts-index');
     Route::get('/new-story', 'PostController@create')->name('post-create');
+
+    Route::post('@{user:username}/follow', 'FollowController@create')->name('follow');
 });

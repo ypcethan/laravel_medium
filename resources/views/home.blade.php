@@ -4,7 +4,7 @@
   <hr class="my-6 " />
   <div class="flex flex-col sm:flex-row">
     <div class="px-4 py-2 m-2 sm:w-8/12">
-      @foreach($posts as $post)
+      @forelse($posts as $post)
       <a href="{{$post->path()}}">
         <div class="flex justify-between my-6">
           <div class="flex flex-col justify-between">
@@ -20,7 +20,9 @@
           <img src="https://picsum.photos/id/{{$post->id + rand(0,100)}}/152/123" alt="" class="ml-4 w-25" />
         </div>
       </a>
-      @endforeach
+      @empty
+      <p>There are no posts yet!</p>
+      @endforelse
     </div>
     <div class="px-4 py-2 m-2 sm:w-4/12 divide-y divide-gray-400">
       <h3 class="mt-4 mb-3 font-serif text-xl text-black text-bold">

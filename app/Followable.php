@@ -26,4 +26,13 @@ trait Followable
       ->where('following_user_id', $user->id)
       ->exists();
     }
+
+    public function toggleFollow(User $user)
+    {
+        if ($this->following($user)) {
+            $this->unfollows($user);
+        } else {
+            $this->follow($user);
+        }
+    }
 }
