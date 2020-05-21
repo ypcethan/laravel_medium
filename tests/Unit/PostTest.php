@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -17,9 +18,9 @@ class PostTest extends TestCase
 
         $this->assertEquals(
             route(
-          'posts-show',
-          ['user' => $post->user->username, 'post' => $post->slug]
-      ),
+                'posts-show',
+                ['user' => $post->user->username, 'post' => $post->slug]
+            ),
             $post->path()
         );
     }
@@ -35,5 +36,11 @@ class PostTest extends TestCase
     {
         $post = factory('App\Post')->create(['title' => 'Laravel is Awesome']);
         $this->assertEquals('laravel-is-awesome', $post->slug);
+    }
+    /** @test */
+    public function it_has_many_comments()
+    {
+        $post = factory('App\Post')->create();
+        $this->assertInstanceOf(Collection::class, $post->comments);
     }
 }

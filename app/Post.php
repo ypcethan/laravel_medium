@@ -27,4 +27,9 @@ class Post extends Model
     {
         return Carbon::parse($this->updated_at)->toFormattedDateString();
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
