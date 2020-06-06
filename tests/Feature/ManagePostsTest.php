@@ -23,4 +23,11 @@ class ManagePostsTest extends TestCase
         $post = factory('App\Post')->create();
         $this->get($post->path())->assertRedirect('login');
     }
+
+    /** @test */
+    public function anthenticated_user_cannot_cannot_view_the_welcome_page()
+    {
+        $this->signIn();
+        $this->get(route('welcome'))->assertRedirect(route('home'));
+    }
 }

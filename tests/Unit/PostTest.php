@@ -43,4 +43,6 @@ class PostTest extends TestCase
         $post = factory('App\Post')->create();
         $this->assertInstanceOf(Collection::class, $post->comments);
     }
+    
+
 }

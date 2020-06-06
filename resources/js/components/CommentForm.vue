@@ -1,8 +1,8 @@
+
 <template>
+
   <div>
-    Comment form
     <div class="w-full">
-      <p class="size-sm">Response</p>
       <div class="px-8 py-6 mt-4 bg-white rounded shadow-md">
         <div class="flex items-center hover:cursor-text" @click="toggleForm">
           <div class="mr-4">
@@ -35,8 +35,9 @@
 </template>
 
 <script>
+import axois from "axios";
 export default {
-  props: ["image_url"],
+  props: ["image_url", "target_path"],
   data() {
     return {
       showForm: false,
@@ -45,7 +46,9 @@ export default {
   },
   methods: {
     handleSubmit() {
-      alert("Submit");
+      axois
+        .post(this.target_path, { content: this.commentData })
+        .then(this.commentData = "");
     },
     toggleForm() {
       this.showForm = !this.showForm;

@@ -27,7 +27,6 @@ class PostController extends Controller
             return $p->slug == $slug;
         })->first();
 
-        /* dd($post); */
         return view('posts.show', compact('post'));
     }
 }
