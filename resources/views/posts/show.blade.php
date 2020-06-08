@@ -29,6 +29,7 @@
           <i class="mr-3 fab fa-twitter fa-lg"></i>
           <i class="mr-3 fab fa-linkedin fa-lg"></i>
           <i class="mr-3 fab fa-facebook-square fa-lg"></i>
+          <i class="far fa-hand-spock"></i>
         </div>
       </div>
     </div>
@@ -39,6 +40,17 @@
         <p class='font-serif text-lg'>{{$post->content}}</p>
       </div>
 
+    </div>
+    <div class="flex justify-between mt-10 mb-10">
+      <div>
+        <span style='font-size:2rem' class="mr-2">
+          <i class="far fa-hand-spock text-black hover:text-gray-500"></i>
+        </span>
+        15 claps
+        <span style='font-size:2rem' class=" ml-5 mr-2">
+          <i class="far fa-comments "></i>
+        </span> 2 responses
+      </div>
     </div>
     <comment-form image_url="{{ auth()->user()->avatar }}"
       target_path="{{ route("comment-store" , ['user'=>$post->user,'post'=>$post]) }}"> </comment-form>
