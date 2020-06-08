@@ -5,7 +5,8 @@
       <div class="flex justify-between ">
         <div class="flex ">
           <div class="mr-4">
-            <img src="https://randomuser.me/api/portraits/med/men/{{$post->user->id}}.jpg" alt="" class="rounded-full" style='height: 45px'>
+            <!-- <img src="https://randomuser.me/api/portraits/med/men/{{$post->user->id}}.jpg" alt="" class="rounded-full" style='height: 45px'> -->
+            <img src="{{ $post->user->avatar }}" alt="" class="rounded-full" style='height: 45px'>
           </div>
           <div class="flex flex-col justify-evenly ">
             <div class='flex items-center'>
@@ -38,7 +39,7 @@
       </div>
 
     </div>
-    <comment-form image_url="https://randomuser.me/api/portraits/med/men/{{auth()->user()->id}}.jpg" target_path="{{ route("comment-store" , ['user'=>$post->user,'post'=>$post]) }}"> </comment-form>
+    <comment-form image_url="{{ auth()->user()->avatar }}" target_path="{{ route("comment-store" , ['user'=>$post->user,'post'=>$post]) }}"> </comment-form>
 
     <comments-component :comments="{{ $post->comments }}"> </comments-component>
 
