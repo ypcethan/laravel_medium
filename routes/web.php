@@ -34,5 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('@{user:username}/follow', 'FollowController@create')->name('follow');
     Route::get('/api/following/{user1}/{user2}', 'FollowController@checkFollow')->name('check-follow');
 
+    Route::get('/api/{post:id}/comments', "CommentController@index")->name('comment-index');
+
     // User 
 });

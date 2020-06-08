@@ -34,7 +34,8 @@
                         </div>
                     </div>
                     <div>
-                        <img src="{{ $user->avatar }}" alt="{{ $user->username }}" class="rounded-full h-32 mb-10" />
+                        <img src="{{ $user->avatar }}" alt="{{ $user->username }}"
+                            class="rounded-full h-32 w-32 object-cover mb-10" />
                         <input type="file" name="avatar" />
                     </div>
                 </div>

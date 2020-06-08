@@ -14,10 +14,15 @@ class CommentController extends Controller
     {
         $attributes = request()->validate(['content' => 'required']);
         Comment::create([
-      'user_id' => $user->id,
-      'post_id' => $post->id,
-      'content' => $attributes['content']
-    ]);
+            'user_id' => auth()->user()->id,
+            'post_id' => $post->id,
+            'content' => $attributes['content']
+        ]);
         return back();
+    }
+
+    public function index(Post $post)
+    {
+        return $post->comments()->with('user')->latest()->get();
     }
 }

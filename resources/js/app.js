@@ -28,16 +28,7 @@ files.keys().map(key => {
     );
 });
 
-// Vue.component(
-//     "follow-button-component",
-//     require("./components/FollowButtonComponent.vue").default
-// )
-
-// Vue.component(
-//     "comment-form",
-//     require('./components/CommentForm.vue').default
-// )
-
+export const bus = new Vue();
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -15,7 +15,8 @@
               </p>
               <!-- <x-follow-button :user="$post->user"></x-follow-button> -->
 
-              <follow-button-component is_following="{{ auth()->user()->following($post->user)?'true' :'false' }}" target_path="{{ route('follow',['user'=>$post->user]) }}"></follow-button-component>
+              <follow-button-component is_following="{{ auth()->user()->following($post->user)?'true' :'false' }}"
+                target_path="{{ route('follow',['user'=>$post->user]) }}"></follow-button-component>
             </div>
             <p class="text-sm text-gray-600">
               {{ $post->published_date}}
@@ -39,9 +40,11 @@
       </div>
 
     </div>
-    <comment-form image_url="{{ auth()->user()->avatar }}" target_path="{{ route("comment-store" , ['user'=>$post->user,'post'=>$post]) }}"> </comment-form>
-
-    <comments-component :comments="{{ $post->comments }}"> </comments-component>
+    <comment-form image_url="{{ auth()->user()->avatar }}"
+      target_path="{{ route("comment-store" , ['user'=>$post->user,'post'=>$post]) }}"> </comment-form>
+    {{-- 
+    <comments-component :comments="{{ $post->comments()->with('user')->get() }}"> </comments-component> --}}
+    <comments-component target_path="{{ route('comment-index', ['post'=>$post]) }}"> </comments-component>
 
   </div>
 </x-app>

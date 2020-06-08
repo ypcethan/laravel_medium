@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Gate;
 
 class UserProfileController extends Controller
 {
@@ -16,6 +17,9 @@ class UserProfileController extends Controller
 
     public function edit(User $user)
     {
+        if (Gate::denies('update', $user)) {
+            return redirect()->route('profile-edit', ['user' => auth()->user()]);
+        }
         return view('profile.edit', compact('user'));
     }
 
