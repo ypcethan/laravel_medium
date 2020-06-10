@@ -43,6 +43,14 @@ class PostTest extends TestCase
         $post = factory('App\Post')->create();
         $this->assertInstanceOf(Collection::class, $post->comments);
     }
-    
 
+    /** @test */
+    public function it_can_be_clapped()
+    {
+        $user = factory('App\User')->create();
+        $post = factory('App\Post')->create();
+        $user->clap($post);
+        $this->assertInstanceOf(Collection::class, $post->clappedUsers);
+        $this->assertEquals($user->id, $post->clappedUsers()->first()->id);
+    }
 }

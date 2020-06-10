@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Collection as SupportCollection;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -47,5 +48,16 @@ class UserTest extends TestCase
 
         $user->unfollows($user2);
         $this->assertFalse($user->following($user2));
+    }
+
+    /** @test */
+    public function it_can_clap_a_post()
+    {
+        $user = factory('App\User')->create();
+        $post = factory('App\Post')->create();
+        $user->clap($post);
+        $this->assertInstanceOf(Collection::class, $user->claps);
+        $this->assertCount(1, $user->claps);
+        $this->assertEquals($post->id, $user->claps()->first()->id);
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Followable;
+use App\Clapable;
 
 class User extends Authenticatable
 {
@@ -40,6 +41,16 @@ class User extends Authenticatable
   public function posts()
   {
     return $this->hasMany(Post::class);
+  }
+
+  public function claps()
+  {
+    return $this->belongsToMany('App\Post', 'claps', 'user_id', 'post_id');
+  }
+
+  public function clap(Post $post)
+  {
+    $this->claps()->attach($post);
   }
 
   public function getAvatarAttribute($value)
