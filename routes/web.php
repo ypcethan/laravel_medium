@@ -28,12 +28,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/@{user:username}/{post:slug}', 'PostController@show')->name('posts-show');
     // Route::get('/@{user:username}', 'PostController@index')->name('posts-index');
     Route::get('/new-story', 'PostController@create')->name('post-create');
-    // Comments
-    Route::post("/{user:username}/{post:id}", 'CommentController@store')->name('comment-store');
     // Follow
     Route::post('@{user:username}/follow', 'FollowController@create')->name('follow');
     Route::get('/api/following/{user1}/{user2}', 'FollowController@checkFollow')->name('check-follow');
 
+    // Comments
+    Route::post("/api/{post:id}/comments", 'CommentController@store')->name('comment-store');
 
     Route::post('/api/{post:id}/clap', "ClapController@store")->name('clap-store');
 

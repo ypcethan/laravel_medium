@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
-        "moment": "^2.26.0"
+        "moment": "^2.26.0",
+        "vuex": "^3.4.0"
     }
 }

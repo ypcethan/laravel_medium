@@ -52,11 +52,8 @@
         </span> 2 responses
       </div>
     </div>
-    <comment-form image_url="{{ auth()->user()->avatar }}"
-      target_path="{{ route("comment-store" , ['user'=>$post->user,'post'=>$post]) }}"> </comment-form>
-    {{-- 
-    <comments-component :comments="{{ $post->comments()->with('user')->get() }}"> </comments-component> --}}
-    <comments-component target_path="{{ route('comment-index', ['post'=>$post]) }}"> </comments-component>
+    <comment-form image_url="{{ auth()->user()->avatar }}" post_id="{{ $post->id }}"> </comment-form>
 
+    <comments-component post_id="{{ $post->id }}"> </comments-component>
   </div>
 </x-app>
