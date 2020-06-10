@@ -45,12 +45,22 @@ class User extends Authenticatable
 
   public function claps()
   {
-    return $this->belongsToMany('App\Post', 'claps', 'user_id', 'post_id');
+    return $this->belongsToMany('App\Post', 'claps', 'user_id', 'post_id')
+      ->withPivot('clapCount');
   }
 
+  public function clapped(Post $post)
+  {
+    return $this->claps()->where('post_id', $post->id)->exists();
+  }
   public function clap(Post $post)
   {
-    $this->claps()->attach($post);
+    if ($this->clapped($post)) {
+      $count = $this->claps()->find($post->id)->pivot->clapCount;
+      $this->claps()->updateExistingPivot($post->id, ['clapCount' => $count += 1]);
+    } else {
+      $this->claps()->attach($post);
+    }
   }
 
   public function getAvatarAttribute($value)

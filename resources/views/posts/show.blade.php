@@ -43,13 +43,8 @@
     </div>
     <div class="flex justify-between mt-10 mb-10">
       <div>
-        <span style='font-size:2rem' class="mr-2">
-          <i class="far fa-hand-spock text-black hover:text-gray-500"></i>
-        </span>
-        15 claps
-        <span style='font-size:2rem' class=" ml-5 mr-2">
-          <i class="far fa-comments "></i>
-        </span> 2 responses
+        <comment-clap-icon post_id="{{ $post->id }}"></comment-clap-icon>
+        <comment-response-icon></comment-response-icon>
       </div>
     </div>
     <comment-form image_url="{{ auth()->user()->avatar }}" post_id="{{ $post->id }}"> </comment-form>

@@ -35,6 +35,7 @@ class Post extends Model
 
     public function clappedUsers()
     {
-        return $this->belongsToMany("App\User", 'claps', 'post_id', 'user_id');
+        return $this->belongsToMany("App\User", 'claps', 'post_id', 'user_id')
+            ->withPivot('clapCount');
     }
 }

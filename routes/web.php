@@ -32,11 +32,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('@{user:username}/follow', 'FollowController@create')->name('follow');
     Route::get('/api/following/{user1}/{user2}', 'FollowController@checkFollow')->name('check-follow');
 
-    // Comments
-    Route::post("/api/{post:id}/comments", 'CommentController@store')->name('comment-store');
 
     Route::post('/api/{post:id}/clap', "ClapController@store")->name('clap-store');
-
-    Route::get('/api/{post:id}/comments', "CommentController@index")->name('comment-index');
+    Route::get('/api/{post:id}/clap/count', "ClapController@showCount")->name('clap-show-count');
+    // Comments
+    Route::post("/api/{post:id}/comments", 'CommentController@store')->name('comment-store');
+    Route::get('/api/{post:id}/comments', "CommentController@show")->name('comment-show');
     // User 
 });

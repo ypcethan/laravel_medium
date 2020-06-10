@@ -21,7 +21,7 @@ class CommentController extends Controller
         return back();
     }
 
-    public function index(Post $post)
+    public function show(Post $post)
     {
         return $post->comments()->with('user')->latest()->get();
     }
