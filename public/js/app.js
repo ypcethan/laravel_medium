@@ -55021,7 +55021,8 @@ var map = {
 	"./components/CommentForm.vue": "./resources/js/components/CommentForm.vue",
 	"./components/CommentResponseIcon.vue": "./resources/js/components/CommentResponseIcon.vue",
 	"./components/CommentsComponent.vue": "./resources/js/components/CommentsComponent.vue",
-	"./components/FollowButtonComponent.vue": "./resources/js/components/FollowButtonComponent.vue"
+	"./components/FollowButtonComponent.vue": "./resources/js/components/FollowButtonComponent.vue",
+	"./components/PostCreation.vue": "./resources/js/components/PostCreation.vue"
 };
 
 
@@ -55050,16 +55051,17 @@ webpackContext.id = "./resources/js sync recursive \\.vue$/";
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! exports provided: bus */
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bus", function() { return bus; });
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _store_storeData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/storeData */ "./resources/js/store/storeData.js");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
@@ -55068,10 +55070,7 @@ var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
 files.keys().map(function (key) {
   Vue.component(key.split("/").pop().split(".")[0], files(key)["default"]);
 });
-
-
 Vue.use(vuex__WEBPACK_IMPORTED_MODULE_2__["default"]);
-var bus = new Vue();
 var app = new Vue({
   store: new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store(_store_storeData__WEBPACK_IMPORTED_MODULE_1__["default"]),
   el: "#app"
@@ -55482,6 +55481,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/PostCreation.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/PostCreation.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/PostCreation.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 

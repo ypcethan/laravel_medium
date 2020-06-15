@@ -19,7 +19,17 @@ class PostController extends Controller
 
     public function store()
     {
+        // if (request()->hasFile('cover_image')) {
+        //     dd(request()->cover_image);
+        // } else {
+        //     dd(request()->all());
+        // }
+        $attributes = $this->validatePostAttributes();
+        $attributes['cover_image'] = request('cover_image')->store('cover_images');
+        auth()->user()->posts()->create($attributes);
+        return redirect(route('home'));
     }
+
 
     public function show($username, $slug)
     {
@@ -28,5 +38,14 @@ class PostController extends Controller
         })->first();
 
         return view('posts.show', compact('post'));
+    }
+
+    protected function validatePostAttributes()
+    {
+        return request()->validate([
+            'title'=>'required',
+            'content'=>'required',
+            'cover_image'=>'required|file'
+        ]);
     }
 }

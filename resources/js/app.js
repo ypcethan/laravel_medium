@@ -1,4 +1,6 @@
 import "./bootstrap";
+import storeData from "./store/storeData";
+import Vuex from "vuex";
 window.Vue = require("vue");
 
 const files = require.context("./", true, /\.vue$/i);
@@ -12,10 +14,8 @@ files.keys().map(key => {
     );
 });
 
-import storeData from "./store/storeData";
-import Vuex from "vuex";
 Vue.use(Vuex);
-export const bus = new Vue();
+
 const app = new Vue({
     store: new Vuex.Store(storeData),
     el: "#app"

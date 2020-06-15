@@ -53,4 +53,9 @@ class PostTest extends TestCase
         $this->assertInstanceOf(Collection::class, $post->clappedUsers);
         $this->assertEquals($user->id, $post->clappedUsers()->first()->id);
     }
+
+    // /** @test */
+    // public function it_has_a_cover_image(){
+
+    // }
 }

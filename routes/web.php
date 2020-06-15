@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/@{user:username}/{post:slug}', 'PostController@show')->name('posts-show');
     // Route::get('/@{user:username}', 'PostController@index')->name('posts-index');
     Route::get('/new-story', 'PostController@create')->name('post-create');
+    Route::post('/new-story/store', 'PostController@store')->name('post-store');
     // Follow
     Route::post('@{user:username}/follow', 'FollowController@create')->name('follow');
     Route::get('/api/following/{user1}/{user2}', 'FollowController@checkFollow')->name('check-follow');
@@ -38,5 +39,5 @@ Route::middleware(['auth'])->group(function () {
     // Comments
     Route::post("/api/{post:id}/comments", 'CommentController@store')->name('comment-store');
     Route::get('/api/{post:id}/comments', "CommentController@show")->name('comment-show');
-    // User 
+    // User
 });

@@ -17,7 +17,7 @@
               <p class="mt-1 text-xs text-gray-700">{{ $post->published_date}}</p>
             </div>
           </div>
-          <img src="https://picsum.photos/id/{{$post->id + rand(0,100)}}/152/123" alt="" class="ml-4 w-25" />
+          <img src="{{ $post->image }}" alt="" class="ml-4 w-25 object-cover h-40" />
         </div>
       </a>
       @empty

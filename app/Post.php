@@ -7,7 +7,7 @@ use Illuminate\Support\Carbon;
 
 class Post extends Model
 {
-    //
+    protected $guarded = [];
     public function path()
     {
         return route('posts-show', ['user' => $this->user->username, 'post' => $this->slug]);
@@ -17,6 +17,7 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
     public function getSlugAttribute()
     {
         $trimedTitle = preg_replace('!\s+!', '-', $this->title);
@@ -26,6 +27,14 @@ class Post extends Model
     public function getPublishedDateAttribute()
     {
         return Carbon::parse($this->updated_at)->toFormattedDateString();
+    }
+
+    public function getImageAttribute()
+    {
+        if (!$this->cover_image) {
+            return "https://picsum.photos/id/$this->id/500/400";
+        }
+        return asset($this->cover_image);
     }
 
     public function comments()
