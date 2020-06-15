@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->boolean('published')->default(false);
             $table->string('cover_image')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // $table->primary(['user_id','title']);
         });
     }
 

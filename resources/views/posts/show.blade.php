@@ -35,7 +35,8 @@
     </div>
 
     <div class="mt-10">
-      <img src="https://picsum.photos/680/450" alt="" class='w-full'>
+      {{-- <img src="https://picsum.photos/680/450" alt="" class='w-full'> --}}
+      <img src="{{ $post->image }}" alt="" class='w-full'>
       <div class="mt-10">
         <p class='font-serif text-lg'>{{$post->content}}</p>
       </div>

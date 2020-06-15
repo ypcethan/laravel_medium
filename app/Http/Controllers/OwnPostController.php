@@ -14,9 +14,9 @@ class OwnPostController extends Controller
             abort(403);
         }
         if ($state == $this->publishedStatus[0]) {
-            $posts = auth()->user()->posts->where('published', false);
+            $posts = auth()->user()->posts()->where('published', false)->latest()->get();
         } else {
-            $posts = auth()->user()->posts->where('published', true);
+            $posts = auth()->user()->posts()->where('published', true)->latest()->get();
             $published = true;
         }
         return view('own_posts.show', ['posts' => $posts, 'published' => $published]);

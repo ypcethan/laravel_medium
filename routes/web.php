@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@home')->name('home');
-    Route::get('/me/stories/{state}', 'OwnPostController@show')->name('own-posts-show');
+    Route::get('/me/stories/{state}', 'OwnPostController@show')->name('own-posts-show')->where('state', "(drafts|published)");
 
     Route::get('@{user:username}/{state?}', 'UserProfileController@index')->name('profile-index')->where('state', "is_recommended");
     Route::get('@{user:username}/edit', 'UserProfileController@edit')->name('profile-edit');
@@ -29,6 +29,8 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/@{user:username}', 'PostController@index')->name('posts-index');
     Route::get('/new-story', 'PostController@create')->name('post-create');
     Route::post('/new-story/store', 'PostController@store')->name('post-store');
+    Route::get('/{post}/edit', 'PostController@edit')->name('post-edit');
+    Route::patch('/{post}/update', 'PostController@update')->name('post-update');
     // Follow
     Route::post('@{user:username}/follow', 'FollowController@create')->name('follow');
     Route::get('/api/following/{user1}/{user2}', 'FollowController@checkFollow')->name('check-follow');

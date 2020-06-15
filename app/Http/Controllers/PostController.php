@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -17,17 +17,37 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    public function edit(Post $post)
+    {
+        return view('posts.edit', ['post'=>$post]);
+    }
+    public function update(Post $post)
+    {
+        $attributes = $this->validatePostAttributes();
+        if (request()->hasFile('cover_image')) {
+            $attributes['cover_image'] = request('cover_image')->store('cover_images');
+        }
+        $attributes['published'] = $attributes['published'] === 'publish';
+        $post->update($attributes);
+
+        if ($post->published) {
+            return redirect(route('posts-show', ['user'=>$post->user, 'post'=>$post]));
+        }
+        return redirect(route('own-posts-show', ['state'=>'drafts']));
+    }
+
     public function store()
     {
-        // if (request()->hasFile('cover_image')) {
-        //     dd(request()->cover_image);
-        // } else {
-        //     dd(request()->all());
-        // }
         $attributes = $this->validatePostAttributes();
-        $attributes['cover_image'] = request('cover_image')->store('cover_images');
-        auth()->user()->posts()->create($attributes);
-        return redirect(route('home'));
+        if (request()->hasFile('cover_image')) {
+            $attributes['cover_image'] = request('cover_image')->store('cover_images');
+        }
+        $attributes['published'] = $attributes['published'] === 'publish';
+        $post = auth()->user()->posts()->create($attributes);
+        if ($post->published) {
+            return redirect(route('posts-show', ['user'=>$post->user, 'post'=>$post]));
+        }
+        return redirect(route('own-posts-show', ['state'=>'drafts']));
     }
 
 
@@ -45,7 +65,8 @@ class PostController extends Controller
         return request()->validate([
             'title'=>'required',
             'content'=>'required',
-            'cover_image'=>'required|file'
+            'published'=>'required',
+            'cover_image'=>""
         ]);
     }
 }
