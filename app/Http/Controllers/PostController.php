@@ -27,7 +27,7 @@ class PostController extends Controller
         if (request()->hasFile('cover_image')) {
             $attributes['cover_image'] = request('cover_image')->store('cover_images');
         }
-        $attributes['published'] = $attributes['published'] === 'publish';
+        
         $post->update($attributes);
 
         if ($post->published) {
@@ -42,7 +42,7 @@ class PostController extends Controller
         if (request()->hasFile('cover_image')) {
             $attributes['cover_image'] = request('cover_image')->store('cover_images');
         }
-        $attributes['published'] = $attributes['published'] === 'publish';
+
         $post = auth()->user()->posts()->create($attributes);
         if ($post->published) {
             return redirect(route('posts-show', ['user'=>$post->user, 'post'=>$post]));

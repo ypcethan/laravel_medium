@@ -50,6 +50,7 @@ class ManagePostsTest extends TestCase
     /** @test */
     public function publish_a_post_should_redirect_to_post_page()
     {
+        $this->withExceptionHandling();
         $this->signIn();
         $postData = factory('App\Post')
         ->raw(['user_id'=>auth()->user()->id, 'published'=>true]);
