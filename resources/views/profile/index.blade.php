@@ -1,6 +1,6 @@
 <x-app>
     <div class="flex flex-col sm:flex-row  justify-center">
-        <div class="px-4 py-4 m-2 sm:w-9/12 ">
+        <div class="px-4 py-4 m-2 sm:w-9/12  flex flex-col">
             <div class="flex flex-col-reverse sm:flex-row sm:justify-between">
                 <!-- Top  -->
                 <div>
@@ -47,6 +47,16 @@
                             'state'=>'is_recommended'])}}">Claps</a>
                     </li>
                 </ul>
+            </div>
+            <div>
+                @if ($is_recommended)
+
+                <h4 class="font-bold text-xl mt-10 mb-4">Claps</h4>
+                <x-profile-posts-list :posts="$user->claps" />
+                @else
+                <h4 class="font-bold text-xl mt-10 mb-4">Latest</h4>
+                <x-profile-posts-list :posts="$user->posts()->latest()->get()" />
+                @endif
             </div>
         </div>
     </div>

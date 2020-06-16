@@ -18,6 +18,6 @@ class ClapController extends Controller
     public function showCount(Post $post)
     {
         // return $post->clappedUsers()->count();
-        return $post->clappedUsers->pluck('pivot.clapCount')->sum();
+        return $post->total_claps;
     }
 }

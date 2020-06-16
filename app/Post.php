@@ -47,4 +47,9 @@ class Post extends Model
         return $this->belongsToMany("App\User", 'claps', 'post_id', 'user_id')
             ->withPivot('clapCount');
     }
+
+    public function getTotalClapsAttribute()
+    {
+        return $this->clappedUsers->pluck('pivot.clapCount')->sum();
+    }
 }
