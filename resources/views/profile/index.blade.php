@@ -52,7 +52,7 @@
                 @if ($is_recommended)
 
                 <h4 class="font-bold text-xl mt-10 mb-4">Claps</h4>
-                <x-profile-posts-list :posts="$user->claps" />
+                <x-profile-posts-list :posts="$user->claps()->latest()->get()" />
                 @else
                 <h4 class="font-bold text-xl mt-10 mb-4">Latest</h4>
                 <x-profile-posts-list :posts="$user->posts()->latest()->get()" />
