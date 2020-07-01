@@ -55575,7 +55575,7 @@ axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.baseURL = "http://aqueous-
     },
     addClapCount: function addClapCount(_ref5, postId) {
       var dispatch = _ref5.dispatch;
-      var target_path = "api/".concat(postId, "/clap/");
+      var target_path = "api/".concat(postId, "/clap");
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(target_path).then(function () {
         dispatch("fetchClapCount", postId);
       });

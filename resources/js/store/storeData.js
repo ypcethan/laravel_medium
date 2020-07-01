@@ -35,7 +35,7 @@ export default {
             });
         },
         addClapCount({ dispatch }, postId) {
-            const target_path = `api/${postId}/clap/`;
+            const target_path = `api/${postId}/clap`;
             axios.post(target_path).then(() => {
                 dispatch("fetchClapCount", postId);
             });
