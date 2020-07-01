@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.baseURL = "http://aqueous-inlet-19564.herokuapp.com/";
 export default {
     state: {
         comments: [],
@@ -14,26 +15,28 @@ export default {
     },
     actions: {
         fetchComments({ commit }, postId) {
-            const target_path = `http://medium.test/api/${postId}/comments`;
+            const target_path = `api/${postId}/comments`;
             axios.get(target_path).then(response => {
                 commit("SET_COMMENTS", response.data);
             });
         },
         addComment({ dispatch }, { content, postId }) {
-            const target_path = `http://medium.test/api/${postId}/comments`;
+            const target_path = `api/${postId}/comments`;
             return axios.post(target_path, { content }).then(() => {
                 dispatch("fetchComments", postId);
             });
         },
         fetchClapCount({ commit }, postId) {
-            const target_path = `http://medium.test/api/${postId}/clap/count`;
+            const target_path = `api/${postId}/clap/count`;
             axios.get(target_path).then(response => {
                 commit("SET_CLAP_COUNT", response.data);
             });
         },
         addClapCount({ dispatch }, postId) {
-            const target_path = `http://medium.test/api/${postId}/clap/`;
+            const target_path = `api/${postId}/clap/`;
             axios.post(target_path).then(() => {
+                console.log("Env");
+                console.log(process.env.APP_ENV);
                 dispatch("fetchClapCount", postId);
             });
         }
