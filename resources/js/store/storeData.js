@@ -1,5 +1,7 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://aqueous-inlet-19564.herokuapp.com/";
+// axios.defaults.baseURL = "http://aqueous-inlet-19564.herokuapp.com/";
+
+axios.defaults.baseURL = process.env.MIX_APP_URL;
 export default {
     state: {
         comments: [],
