@@ -35,8 +35,6 @@ export default {
         addClapCount({ dispatch }, postId) {
             const target_path = `api/${postId}/clap/`;
             axios.post(target_path).then(() => {
-                console.log("Env");
-                console.log(process.env.APP_ENV);
                 dispatch("fetchClapCount", postId);
             });
         }
