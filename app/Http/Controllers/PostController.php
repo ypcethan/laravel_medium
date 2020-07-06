@@ -71,7 +71,7 @@ class PostController extends Controller
             'title'=>'required',
             'content'=>'required',
             'published'=>'required',
-            'cover_image'=>"sometime|file|image|max:3000"
+            'cover_image'=>"sometimes|file|image|max:3000"
         ]);
 
 
