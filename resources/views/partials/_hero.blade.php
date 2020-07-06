@@ -5,10 +5,10 @@
         <img src="https://picsum.photos/400/200" alt="" class="w-100">
       </div>
       <div class="">
-        <h2 class="my-3 text-lg post__title">Lorem ipconsectetur adipisicing elit. Voluptattempora corporis maxime quae provident r</h2>
-        <p class="post__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi iure beatae eligendi, optio! Aliquam ut nobis obcaecati amet harum inventore dolor quod.</p>
-        <p class="mt-4 text-xs text-black">Author </p>
-        <p class="mt-1 text-xs text-gray-700">Published time </p>
+        <h2 class="my-3 text-lg post__title">{{ $posts[0]->title }}</h2>
+        <p class="post__excerpt">{{ $posts[0]->content }}</p>
+        <p class="mt-4 text-xs text-black">{{ $posts[0]->user->username }} </p>
+        <p class="mt-1 text-xs text-gray-700">Published time {{ $posts[0]->updated_at->diffForHumans()}} </p>
       </div>
     </div>
   </div>
@@ -19,30 +19,30 @@
       <div class="flex my-2 h-1/3">
         <img src="https://picsum.photos/100/100" alt="" class="mr-3 w-25">
         <div class="flex flex-col justify-between">
-          <h3 class="post__title">Title</h3>
+          <h3 class="post__title">{{ $posts[1]->title }}</h3>
           <div>
-            <p class="mt-4 text-xs text-black">Author </p>
-            <p class="mt-1 text-xs">Published time </p>
+            <p class="mt-4 text-xs text-black">{{ $posts[1]->user->username }} </p>
+            <p class="mt-1 text-xs">Published time {{ $posts[1]->updated_at->diffForHumans()}} </p>
           </div>
         </div>
       </div>
       <div class="flex my-2 h-1/3">
         <img src="https://picsum.photos/100/100" alt="" class="mr-3 w-25">
         <div class="flex flex-col justify-between">
-          <h3 class="font-serif font-semibold text-black">Title</h3>
+          <h3 class="font-serif font-semibold text-black">{{ $posts[2]->title }}</h3>
           <div>
-            <p class="mt-4 text-xs text-black">Author </p>
-            <p class="mt-1 text-xs">Published time </p>
+            <p class="mt-4 text-xs text-black">{{ $posts[3]->user->username }} </p>
+            <p class="mt-1 text-xs">Published time {{ $posts[2]->updated_at->diffForHumans()}} </p>
           </div>
         </div>
       </div>
       <div class="flex my-2 h-1/3">
         <img src="https://picsum.photos/100/100" alt="" class="mr-3 w-25">
         <div class="flex flex-col justify-between">
-          <h3 class="font-serif font-semibold text-black">Title</h3>
+          <h3 class="font-serif font-semibold text-black">{{ $posts[3]->title }}</h3>
           <div>
-            <p class="mt-4 text-xs text-black">Author </p>
-            <p class="mt-1 text-xs">Published time </p>
+            <p class="mt-4 text-xs text-black">{{ $posts[3]->user->username }} </p>
+            <p class="mt-1 text-xs">Published time {{ $posts[3]->updated_at->diffForHumans()}}</p>
           </div>
         </div>
       </div>
@@ -56,10 +56,10 @@
         <img src="https://picsum.photos/400/200" alt="" class="w-100">
       </div>
       <div class="">
-        <h2 class="my-3 text-lg post__title">Lorem ipconsectetur adipisicing elit. Voluptattempora corporis maxime quae provident r</h2>
-        <p class="post__excerpt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi iure beatae eligendi, optio! Aliquam ut nobis obcaecati amet harum inventore dolor quod.</p>
-        <p class="mt-4 text-xs text-black">Author </p>
-        <p class="mt-1 text-xs text-grey-100">Published time </p>
+        <h2 class="my-3 text-lg post__title">{{ $posts[4]->title }}</h2>
+        <p class="post__excerpt">{{ $posts[4]->content }}</p>
+        <p class="mt-4 text-xs text-black">{{ $posts[4]->user->username }} </p>
+        <p class="mt-1 text-xs text-grey-100">Published time {{ $posts[4]->updated_at->diffForHumans()}} </p>
       </div>
     </div>
   </div>
