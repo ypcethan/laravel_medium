@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class UserProfileController extends Controller
 {
@@ -28,7 +29,9 @@ class UserProfileController extends Controller
         $attributes = request()->validate(['username' => 'min:3', 'avatar' => 'file']);
 
         if (request()->has('avatar')) {
-            $attributes['avatar'] = request('avatar')->store('avatars');
+            $attributes['avatar'] = request('avatar')->store('avatars', 's3');
+
+            Storage::disk('s3')->setVisibility($attributes['avatar'], 'public');
         }
         // dd($attributes);
         $user->update($attributes);

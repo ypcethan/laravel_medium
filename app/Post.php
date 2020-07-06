@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
@@ -34,7 +35,9 @@ class Post extends Model
         if (!$this->cover_image) {
             return "https://picsum.photos/id/$this->id/500/400";
         }
-        return asset($this->cover_image);
+        // $path =Storage::disk('s3')->url($this->cover_image);
+        $path = Storage::disk('s3')->url($this->cover_image);
+        return $path;
     }
 
     public function comments()

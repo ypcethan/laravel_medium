@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -25,7 +26,8 @@ class PostController extends Controller
     {
         $attributes = $this->validatePostAttributes();
         if (request()->hasFile('cover_image')) {
-            $attributes['cover_image'] = request('cover_image')->store('cover_images');
+            $attributes['cover_image'] = request('cover_image')->store('cover_images', 's3');
+            Storage::disk('s3')->setVisibility($attributes['cover_image'], 'public');
         }
         
         $post->update($attributes);
@@ -40,8 +42,11 @@ class PostController extends Controller
     {
         $attributes = $this->validatePostAttributes();
         if (request()->hasFile('cover_image')) {
-            $attributes['cover_image'] = request('cover_image')->store('cover_images');
+            $attributes['cover_image'] = request('cover_image')->store('cover_images', 's3');
+
+            Storage::disk('s3')->setVisibility($attributes['cover_image'], 'public');
         }
+
 
         $post = auth()->user()->posts()->create($attributes);
         if ($post->published) {
@@ -62,11 +67,14 @@ class PostController extends Controller
 
     protected function validatePostAttributes()
     {
-        return request()->validate([
+        $validatedDate =  request()->validate([
             'title'=>'required',
             'content'=>'required',
             'published'=>'required',
-            'cover_image'=>""
+            'cover_image'=>"sometime|file|image|max:3000"
         ]);
+
+
+        return $validatedDate;
     }
 }
