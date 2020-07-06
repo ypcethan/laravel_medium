@@ -12,7 +12,7 @@
     </div>
     <div class="">
         <a href="{{ $post->path() }}">
-            <img src="{{ $post->cover_image }}" class='h-64 w-full object-cover'>
+            <img src="{{ $post->image }}" class='h-64 w-full object-cover'>
             <h2 class="text-4xl font-bold mt-5">
                 {{ $post->title }}
             </h2>
