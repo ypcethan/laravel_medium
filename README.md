@@ -1,7 +1,7 @@
 ![Cover image](/laravel-medium.png)
 
 ## Project URL
-<https://dashboard.heroku.com/apps/laravel-medium>
+<https://laravel-medium.herokuapp.com>
 
 ## Github links
 <https://github.com/EthanChenYen-Peng/laravel_medium>
