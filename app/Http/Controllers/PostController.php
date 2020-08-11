@@ -65,6 +65,12 @@ class PostController extends Controller
         return view('posts.show', compact('post'));
     }
 
+    public function uploadImage()
+    {
+        // dd(request()->all());
+        return 'hello';
+    }
+
     protected function validatePostAttributes()
     {
         $validatedDate =  request()->validate([

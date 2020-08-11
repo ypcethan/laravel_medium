@@ -6,4 +6,5 @@
 
     </div>
 
+    {{-- <script src="{{ asset('js/editor.js') }}" defer></script> --}}
 </x-app>

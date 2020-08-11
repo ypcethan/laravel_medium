@@ -8,6 +8,8 @@ $fa-font-path: "../webfonts";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "./editor.scss";
+
 .btn-nav {
     @apply text-sm p-3 text-black;
 }
@@ -19,5 +21,3 @@ $fa-font-path: "../webfonts";
 .post__excerpt {
     @apply text-sm text-gray-700;
 }
-
-
