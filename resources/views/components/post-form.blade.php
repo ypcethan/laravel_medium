@@ -1,4 +1,4 @@
-<form action="{{ $path }}" method="POST" class="w-full" enctype="multipart/form-data">
+<form action="{{ $path }}" method="POST" class="w-full fr-view" id='post-editor' enctype="multipart/form-data">
     @csrf
     @if ($isEdit)
     @method('PATCH')
@@ -20,7 +20,7 @@
         {{ $message }}
     </p>
     @enderror
-    <textarea name="content" rows="10" class="
+    <textarea name="content" rows="10" class=" post-content
             bg-gray-100 outline-none border-none font-serif text-2xl w-full" placeholder="Tell your story">
         @if (!empty($post))
         {{ $post->content }}

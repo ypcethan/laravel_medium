@@ -1,3 +1,4 @@
+import "./editor"
 import "./bootstrap";
 import storeData from "./store/storeData";
 import Vuex from "vuex";
