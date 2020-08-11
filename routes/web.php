@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/api/following/{user1}/{user2}', 'FollowController@checkFollow')->name('check-follow');
 
 
-    Route::post('/api/upload_image', "PostController@uploadImage");
+    Route::post('/upload_image', "PostController@uploadImage");
     Route::post('/api/{post:id}/clap', "ClapController@store")->name('clap-store');
     Route::get('/api/{post:id}/clap/count', "ClapController@showCount")->name('clap-show-count');
     // Comments

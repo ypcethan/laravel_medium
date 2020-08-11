@@ -67,8 +67,15 @@ class PostController extends Controller
 
     public function uploadImage()
     {
-        // dd(request()->all());
-        return 'hello';
+        // dd(request()->file);
+        if (request()->hasFile('file')) {
+            $file = request('file')->store('post_images', 's3');
+
+            Storage::disk('s3')->setVisibility($file, 'public');
+
+            $path = Storage::disk('s3')->url($file);
+            return json_encode(["link"=>$path]);
+        }
     }
 
     protected function validatePostAttributes()

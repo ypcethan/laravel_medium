@@ -7,12 +7,19 @@ import "froala-editor/js/plugins/draggable.min.js"
 import "froala-editor/js/plugins/colors.min.js"
 import "froala-editor/js/plugins/lists.min.js"
 import "froala-editor/js/plugins/quote.min.js"
-console.log(process.env)
 document.addEventListener('DOMContentLoaded', function (event) {
     // let editor = new FroalaEditor('#post-editor')
+    const csrf = document.querySelector('input').getAttribute('value')
     let editor = new FroalaEditor('.post-content', {
-        imageUploadURL: '/api/upload_image'
+        imageUploadURL: '/upload_image',
+        // Set max image size to 5MB.
+        imageMaxSize: 5 * 1024 * 1024,
+        // Allow to upload PNG and JPG.
+        imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+        imageUploadParams: {
+            _token: csrf
+        }
+
     })
-    console.log(process.env.MIX_AWS_DEFAULT_REGION)
     console.log('Hello from editor')
 })
