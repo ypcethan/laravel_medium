@@ -6,7 +6,7 @@
       </div>
       <div class="">
         <h2 class="my-3 text-lg post__title">{{ $posts[0]->title }}</h2>
-        <p class="post__excerpt">{{ $posts[0]->content }}</p>
+        <p class="post__excerpt">{{ $posts[0]->excerpt }}</p>
         <p class="mt-4 text-xs text-black">{{ $posts[0]->user->username }} </p>
         <p class="mt-1 text-xs text-gray-700">Published time {{ $posts[0]->updated_at->diffForHumans()}} </p>
       </div>
@@ -57,7 +57,7 @@
       </div>
       <div class="">
         <h2 class="my-3 text-lg post__title">{{ $posts[4]->title }}</h2>
-        <p class="post__excerpt">{{ $posts[4]->content }}</p>
+        <p class="post__excerpt">{{ $posts[4]->excerpt }}</p>
         <p class="mt-4 text-xs text-black">{{ $posts[4]->user->username }} </p>
         <p class="mt-1 text-xs text-grey-100">Published time {{ $posts[4]->updated_at->diffForHumans()}} </p>
       </div>

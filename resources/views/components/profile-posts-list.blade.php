@@ -17,7 +17,7 @@
                 {{ $post->title }}
             </h2>
             <p class="text-2xl mt-5 text-gray-600">
-                {{ Str::limit($post->content,60) }}
+                {{ $post->excerpt }}
             </p>
             <div class="mt-6">
 

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -28,6 +29,10 @@ class Post extends Model
     public function getPublishedDateAttribute()
     {
         return Carbon::parse($this->updated_at)->toFormattedDateString();
+    }
+    public function getExcerptAttribute()
+    {
+        return Str::limit(strip_tags($this->content), 30);
     }
 
     public function getImageAttribute()
