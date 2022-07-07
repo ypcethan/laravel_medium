@@ -27,7 +27,7 @@
         "@fortawesome/fontawesome-free": "^5.13.0",
         "dotenv": "^8.2.0",
         "froala-editor": "^3.2.1",
-        "moment": "^2.26.0",
+        "moment": "^2.29.4",
         "vuex": "^3.4.0"
     }
 }
